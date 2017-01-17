@@ -7,8 +7,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="@yield('meta_description')">
 
-    <title>{{ config('app.name') }}</title>
+    <title>@yield('title') | {{ config('app.name') }}</title>
 
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -88,26 +89,11 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div class="container">
 
-        
+            @yield('content')
 
-        <section id="contact" class="contact bg-primary">
-            <div class="container">
-                <h2>We <i class="fa fa-heart"></i> new friends!</h2>
-                <ul class="list-inline list-social">
-                    <li class="social-twitter">
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li class="social-facebook">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li class="social-google-plus">
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </section>
+        </div> <!-- .container -->
 
         <footer>
             <div class="container">

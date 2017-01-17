@@ -6,10 +6,10 @@ body {
 }
 
 body {
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
-a {
+a, button {
     @include transition;
     color: $theme-primary;
     &:hover,
@@ -135,7 +135,7 @@ p {
 
 // Homepage Header
 header.jumbo {
-    margin-top: -50px;
+    margin-top: -60px;
     position: relative;
     width: 100%;
     min-height: auto;

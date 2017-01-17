@@ -7697,16 +7697,16 @@ body {
 }
 
 body {
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
-a {
+a, button {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   color: #fdcc52;
 }
 
-a:hover, a:focus {
+a:hover, a:focus, button:hover, button:focus {
   color: #fcbd20;
 }
 
@@ -7817,7 +7817,7 @@ p {
 }
 
 header.jumbo {
-  margin-top: -50px;
+  margin-top: -60px;
   position: relative;
   width: 100%;
   min-height: auto;
