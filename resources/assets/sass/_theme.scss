@@ -5,6 +5,10 @@ body {
     width: 100%;
 }
 
+body {
+    margin-top: 50px;
+}
+
 a {
     @include transition;
     color: $theme-primary;
@@ -34,9 +38,11 @@ p {
 // Navigation
 
 .navbar-default {
-    background-color: white;
     border-color: transparent;
-    font-family: $heading-font;
+    font-family: $heading-font;    
+    background: $theme-secondary; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, $theme-secondary , $theme-tertiary); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, $theme-secondary , $theme-tertiary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     @include transition;
 
     .navbar-header .navbar-brand {
@@ -102,18 +108,15 @@ p {
         }
 
         &.affix {
-            background-color: white;
-            border-color: fade-in($gray-darker, 0.1);
+            background-color: white !important;
             .navbar-header .navbar-brand {
-                color: $gray-darker;
                 &:hover,
                 &:focus {
                     color: $theme-primary;
                 }
             }
             .nav > li > a,
-            .nav > li > a:focus {
-                color: $gray-darker;
+            .nav > li > a:focus {                
                 &:hover {
                     color: $theme-primary;
                 }
@@ -122,8 +125,17 @@ p {
     }
 }
 
+.home {
+    .navbar-default {
+        &.affix-top {
+            background: transparent !important;
+        }
+    }
+}
+
 // Homepage Header
 header.jumbo {
+    margin-top: -50px;
     position: relative;
     width: 100%;
     min-height: auto;
