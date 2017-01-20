@@ -35,6 +35,7 @@ class SearchController extends Controller
     public function ajax_search()
     {
         // Search the database
+        
 
         // If less than the required results then grab the rest from the API
 
