@@ -50,6 +50,7 @@ class AddMoviesTable extends Migration
             $table->string('box_office');
             $table->string('production');
             $table->string('website');
+            $table->boolean('partially_complete')->default(false);
             $table->timestamp('created_at')->nullable();
         });
     }

@@ -6,6 +6,9 @@
  */
 
 require('./bootstrap');
+require('./bootstrap3-typeahead.min');
+
+require('./search');
 
 (function($) {
     "use strict"; // Start of use strict

@@ -1,14 +1,15 @@
 
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Lato);
-@import url(https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900);
-@import url(https://fonts.googleapis.com/css?family=Muli);
 
 // Variables
 @import "variables";
+@import "mixins";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-@import "mixins";
-@import "theme";
+@import "typeahead";
+
+@import "layout";
+//@import "theme";
