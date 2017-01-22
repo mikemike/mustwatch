@@ -991,12 +991,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mikemike/Laravel-OMDb.git",
-                "reference": "db8412285253dad22ed6faf574d7ca109ef1daf4"
+                "reference": "fab94e61f58845be42ce2896fcbd5faa746178f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mikemike/Laravel-OMDb/zipball/db8412285253dad22ed6faf574d7ca109ef1daf4",
-                "reference": "db8412285253dad22ed6faf574d7ca109ef1daf4",
+                "url": "https://api.github.com/repos/mikemike/Laravel-OMDb/zipball/fab94e61f58845be42ce2896fcbd5faa746178f7",
+                "reference": "fab94e61f58845be42ce2896fcbd5faa746178f7",
                 "shasum": ""
             },
             "require": {
@@ -1027,7 +1027,7 @@
             "support": {
                 "source": "https://github.com/mikemike/Laravel-OMDb/tree/master"
             },
-            "time": "2017-01-17 08:27:25"
+            "time": "2017-01-22 14:23:20"
         },
         {
             "name": "monolog/monolog",

@@ -28,6 +28,8 @@
                         </div>                        
                     </form>
 
+                    <div id="results"></div>
+
                 </div>
             </div>
 
