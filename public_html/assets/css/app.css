@@ -7692,6 +7692,29 @@ body {
   margin-top: 75px;
 }
 
+.row.is-flex {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row.is-flex > [class*='col-'] {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+
+.search h2 {
+  font-size: 18px;
+  margin: 5px 0 0;
+}
+
+.search p.text-muted {
+  margin: 0;
+}
+
 .search img {
   max-width: 100%;
 }

@@ -55,6 +55,7 @@ class SearchController extends Controller
             // Save any API results to the database
             if(!empty($omdb)) {
                 if(empty($omdb['Error'])) {
+                    $omdb_movies = [];
                     foreach($omdb['Search'] as $omdb_result){
                         $local_movie = Movie::where('imdb_id', $omdb_result['imdbID'])->first();
 
@@ -104,7 +105,7 @@ class SearchController extends Controller
                         $local_movie->searchable();
 
                         $new_data['source'] = 'omdb';
-                        $data['movies'][] = $new_data;
+                        $omdb_movies[] = $new_data;
                     }
                     
                 } else {
@@ -113,15 +114,36 @@ class SearchController extends Controller
             }
         }
 
-        if($db_movies->isEmpty() && empty($data['movies'])) {
+        if($db_movies->isEmpty() && empty($omdb_movies)) {
             $data['count'] = 0;
         } else {
-            $data['count'] = count($data['movies']);
+            if(!empty($omdb_movies)) {
+                $data['count'] = count($omdb_movies);
+            } else {
+                $data['count'] = $db_movies->count();
+            }
         }
 
-        if(!$db_movies->isEmpty()){
-            $data['movies'] = array_merge($data['movies'], $db_movies->toArray());
+        // If we have any omdb movies lets just use those rather than merging as it prevents dupes
+        //if(!$db_movies->isEmpty()){
+        //    $data['movies'] = array_merge($data['movies'], $db_movies->toArray());
+        //}
+        if(empty($omdb_movies)) {
+            $movies = $db_movies->toArray();
+        } else {
+            $movies = $omdb_movies;
         }
+
+        // Lastly, foreach and only return items with poster art.  This rules out 
+        // most of the pointless titles
+        $final_array = [];
+        foreach($movies as $movie) {
+            if(!empty($movie['poster'])){
+                $final_array[] = $movie;
+            }
+        }
+
+        $data['movies'] = $final_array;
 
         return response()->json($data);
     }
