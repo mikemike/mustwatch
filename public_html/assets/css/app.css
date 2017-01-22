@@ -7688,12 +7688,12 @@ button.close {
   }
 }
 
-.typeahead {
-  width: 500px;
-}
-
 body {
   margin-top: 75px;
+}
+
+.search img {
+  max-width: 100%;
 }
 
 /*# sourceMappingURL=app.css.map */

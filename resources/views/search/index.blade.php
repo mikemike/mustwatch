@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <div class="row">
+    <div class="row search">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Search</div>

@@ -15,14 +15,22 @@ $(document).ready(function() {
             },
             success: function(data){
                 console.log(data);
-                
-                html = '';
-                html+= '<img src="'+ data.movies.poster +'"><br>';
-                html+= '<h1>'+ data.movies.title +'</h1>';
-                html+= '<p class="text-muted">'+ data.movies.type +'</p>';
-                html+= '<p>'+ data.movies.plot +'</p>';
 
-                $('#results').html(html);
+                $('#results').html('<div class="row"></div>');
+
+                $.each(data.movies, function(i, v){
+                    var html = '';
+                    html+= '<div class="col-md-2">';
+                    html+= '    <img src="'+ data.movies[i].poster +'"><br>';
+                    html+= '    <h1>'+ data.movies[i].title +'</h1>';
+                    html+= '    <p class="text-muted">'+ data.movies[i].type +'</p>';
+                    html+= '    <p>'+ data.movies[i].plot +'</p>';
+                    html+= '</div>'+"\n\n";
+
+                    $('#results .row').append(html);
+                    console.log(v);
+                });
+
             },
             error: function() {
                 alert('error');

@@ -47,15 +47,15 @@ class SearchController extends Controller
         ];
 
         // Search the database
-        $movies = Movie::search($query)->get();
+        $db_movies = Movie::search($query)->get();
 
         // If less than the required results then grab the rest from the API
-        if($movies->count() < 2) {
+        if($db_movies->count() < config('mustwatch.max_results')) {
             $omdb = \MovieDB::search_query($query);
             // Save any API results to the database
             if(!empty($omdb)) {
                 if(empty($omdb['Error'])) {
-                    foreach($omdb as $omdb_result){
+                    foreach($omdb['Search'] as $omdb_result){
                         $local_movie = Movie::where('imdb_id', $omdb_result['imdbID'])->first();
 
                         $new_data = [
@@ -72,7 +72,7 @@ class SearchController extends Controller
                             'language' => (empty($omdb_result['Language']) ? '' : $omdb_result['Language']),
                             'country' => (empty($omdb_result['Country']) ? '' : $omdb_result['Country']),
                             'awards' => (empty($omdb_result['Awards']) ? '' : $omdb_result['Awards']),
-                            'poster' => (empty($omdb_result['Poster']) ? '' : $omdb_result['Poster']),
+                            'poster' => (empty($omdb_result['Poster']) || $omdb_result['Poster'] == 'N/A' ? '' : $omdb_result['Poster']),
                             'metascore' => (empty($omdb_result['Metascore']) ? '' : $omdb_result['Metascore']),
                             'imdb_rating' => (empty($omdb_result['imdbRating']) ? '' : $omdb_result['imdbRating']),
                             'imdb_votes' => (empty($omdb_result['imdbVotes']) ? '' : str_replace(',', '', $omdb_result['imdbVotes'])),
@@ -113,14 +113,14 @@ class SearchController extends Controller
             }
         }
 
-        if(empty($movies) && empty($new_data)) {
+        if($db_movies->isEmpty() && empty($data['movies'])) {
             $data['count'] = 0;
         } else {
             $data['count'] = count($data['movies']);
         }
 
-        if(!empty($movies)){
-            $data['movies'] = $movies;
+        if(!$db_movies->isEmpty()){
+            $data['movies'] = array_merge($data['movies'], $db_movies->toArray());
         }
 
         return response()->json($data);
