@@ -11,4 +11,17 @@
     img {
         max-width: 100%;
     }
+
+    .movie {
+        position: relative;
+        padding-bottom: 50px;
+        height: 100%;
+
+        .btn-area {
+            position: absolute;
+            bottom: 0;
+            height: 30px;
+            width: 100%;
+        }
+    }
 }

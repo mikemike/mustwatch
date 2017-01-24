@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Search')
-
-@section('meta_description')
-    Search for movies and TV shows on {{ config('app.name') }}.
-@stop
+@section('meta_description', 'Search for movies and TV shows on '.config('app.name').'.')
 
 @section('content')
     <div class="row search">
@@ -18,7 +15,7 @@
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="q" class="control-label">Search</label>
-                            <input id="q" type="text" class="form-control" name="q" value="{{ old('q') }}" placeholder="Shawshank Redemption or Game of Thrones" autocomplete="off" data-provide="typeahead" required autofocus>
+                            <input id="q" type="text" class="form-control" name="q" value="{{ Request::input('q') }}" placeholder="Shawshank Redemption or Game of Thrones" autocomplete="off" data-provide="typeahead" required autofocus>
 
                             @if ($errors->has('q'))
                                 <span class="help-block">

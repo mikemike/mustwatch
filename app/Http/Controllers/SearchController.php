@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Movie;
 use Mikemike\MovieDB;
 
@@ -144,6 +145,7 @@ class SearchController extends Controller
         }
 
         $data['movies'] = $final_array;
+        $data['logged_in'] = Auth::check();
 
         return response()->json($data);
     }

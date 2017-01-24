@@ -7706,6 +7706,237 @@ body {
   flex-direction: column;
 }
 
+/* Keyframes for the fade-in */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadein {
+  opacity: 0;
+  opacity: 1 \9;
+  /*just in case ie*/
+  -webkit-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.fadein:nth-child(1) {
+  -webkit-animation-delay: .3s;
+  animation-delay: .3s;
+}
+
+.fadein:nth-child(2) {
+  -webkit-animation-delay: .4s;
+  animation-delay: .4s;
+}
+
+.fadein:nth-child(3) {
+  -webkit-animation-delay: .5s;
+  animation-delay: .5s;
+}
+
+.fadein:nth-child(4) {
+  -webkit-animation-delay: .6s;
+  animation-delay: .6s;
+}
+
+.fadein:nth-child(5) {
+  -webkit-animation-delay: .7s;
+  animation-delay: .7s;
+}
+
+.fadein:nth-child(6) {
+  -webkit-animation-delay: .8s;
+  animation-delay: .8s;
+}
+
+.fadein:nth-child(7) {
+  -webkit-animation-delay: .9s;
+  animation-delay: .9s;
+}
+
+.fadein:nth-child(8) {
+  -webkit-animation-delay: 1.0s;
+  animation-delay: 1.0s;
+}
+
+.fadein:nth-child(9) {
+  -webkit-animation-delay: 1.1s;
+  animation-delay: 1.1s;
+}
+
+.fadein:nth-child(10) {
+  -webkit-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+
+.fadein:nth-child(11) {
+  -webkit-animation-delay: 1.3s;
+  animation-delay: 1.3s;
+}
+
+.fadein:nth-child(12) {
+  -webkit-animation-delay: 1.4s;
+  animation-delay: 1.4s;
+}
+
+.fadein:nth-child(13) {
+  -webkit-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+
+.fadein:nth-child(14) {
+  -webkit-animation-delay: 1.6s;
+  animation-delay: 1.6s;
+}
+
+.fadein:nth-child(15) {
+  -webkit-animation-delay: 1.7s;
+  animation-delay: 1.7s;
+}
+
+.fadein:nth-child(16) {
+  -webkit-animation-delay: 1.8s;
+  animation-delay: 1.8s;
+}
+
+.fadein:nth-child(17) {
+  -webkit-animation-delay: 1.9s;
+  animation-delay: 1.9s;
+}
+
+.fadein:nth-child(18) {
+  -webkit-animation-delay: 2.0s;
+  animation-delay: 2.0s;
+}
+
+.fadein:nth-child(19) {
+  -webkit-animation-delay: 2.1s;
+  animation-delay: 2.1s;
+}
+
+.fadein:nth-child(20) {
+  -webkit-animation-delay: 2.2s;
+  animation-delay: 2.2s;
+}
+
+.fadein:nth-child(21) {
+  -webkit-animation-delay: 2.3s;
+  animation-delay: 2.3s;
+}
+
+.fadein:nth-child(22) {
+  -webkit-animation-delay: 2.4s;
+  animation-delay: 2.4s;
+}
+
+.fadein:nth-child(23) {
+  -webkit-animation-delay: 2.5s;
+  animation-delay: 2.5s;
+}
+
+.fadein:nth-child(24) {
+  -webkit-animation-delay: 2.6s;
+  animation-delay: 2.6s;
+}
+
+.fadein:nth-child(25) {
+  -webkit-animation-delay: 2.7s;
+  animation-delay: 2.7s;
+}
+
+.fadein:nth-child(26) {
+  -webkit-animation-delay: 2.8s;
+  animation-delay: 2.8s;
+}
+
+.fadein:nth-child(27) {
+  -webkit-animation-delay: 2.9s;
+  animation-delay: 2.9s;
+}
+
+.fadein:nth-child(28) {
+  -webkit-animation-delay: 3.0s;
+  animation-delay: 3.0s;
+}
+
+.fadein:nth-child(29) {
+  -webkit-animation-delay: 3.1s;
+  animation-delay: 3.1s;
+}
+
+.fadein:nth-child(30) {
+  -webkit-animation-delay: 3.2s;
+  animation-delay: 3.2s;
+}
+
+.fadein:nth-child(31) {
+  -webkit-animation-delay: 3.3s;
+  animation-delay: 3.3s;
+}
+
+.fadein:nth-child(32) {
+  -webkit-animation-delay: 3.4s;
+  animation-delay: 3.4s;
+}
+
+.fadein:nth-child(33) {
+  -webkit-animation-delay: 3.5s;
+  animation-delay: 3.5s;
+}
+
+.fadein:nth-child(34) {
+  -webkit-animation-delay: 3.6s;
+  animation-delay: 3.6s;
+}
+
+.fadein:nth-child(35) {
+  -webkit-animation-delay: 3.7s;
+  animation-delay: 3.7s;
+}
+
+.fadein:nth-child(36) {
+  -webkit-animation-delay: 3.8s;
+  animation-delay: 3.8s;
+}
+
+.fadein:nth-child(37) {
+  -webkit-animation-delay: 3.9s;
+  animation-delay: 3.9s;
+}
+
+.fadein:nth-child(38) {
+  -webkit-animation-delay: 4.0s;
+  animation-delay: 4.0s;
+}
+
+.fadein:nth-child(39) {
+  -webkit-animation-delay: 4.1s;
+  animation-delay: 4.1s;
+}
+
+.fadein:nth-child(40) {
+  -webkit-animation-delay: 4.2s;
+  animation-delay: 4.2s;
+}
+
 .search h2 {
   font-size: 18px;
   margin: 5px 0 0;
@@ -7717,6 +7948,19 @@ body {
 
 .search img {
   max-width: 100%;
+}
+
+.search .movie {
+  position: relative;
+  padding-bottom: 50px;
+  height: 100%;
+}
+
+.search .movie .btn-area {
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
 }
 
 /*# sourceMappingURL=app.css.map */
