@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    /**
+     * The movies that the user wants to watch.
+     */
+    public function movies()
+    {
+        return $this->belongsToMany('App\Movie', 'user_movie', 'user_id', 'movie_id');
+    }
 }

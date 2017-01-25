@@ -47,4 +47,12 @@ class Movie extends Model
         'website',
         'partially_complete'
     ];
+
+    /**
+     * The users who want to watch this movie.
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\User', 'user_movie', 'movie_id', 'user_id');
+    }
 }

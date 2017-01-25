@@ -106,7 +106,7 @@ class SearchController extends Controller
                         $local_movie->searchable();
 
                         $new_data['source'] = 'omdb';
-                        $omdb_movies[] = $new_data;
+                        $omdb_movies[] = $local_movie;
                     }
                     
                 } else {

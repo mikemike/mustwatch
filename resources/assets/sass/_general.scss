@@ -20,6 +20,10 @@
     flex-direction: column;
 }
 
+a.btn {
+    @include transition;
+}
+
 // Fade in
 /* Keyframes for the fade-in */
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
