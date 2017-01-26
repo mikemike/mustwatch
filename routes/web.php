@@ -14,6 +14,8 @@
 Route::get('/', 'HomeController@index');
 
 Auth::routes();
+Route::get('account', ['uses' => 'AccountController@index', 'as' => 'account']);
+Route::post('account', ['uses' => 'AccountController@account_submit', 'as' => 'account.submit']);
 
 Route::get('/search', ['uses' => 'SearchController@index', 'as' => 'search']);
 Route::get('/search/ajax', ['uses' => 'SearchController@ajax_search', 'as' => 'search.ajax']);
