@@ -67,6 +67,7 @@ class SearchController extends Controller
 
                         $new_data = [
                             'title' => (empty($omdb_result['Title']) ? '' : $omdb_result['Title']),
+                            'slug' => (empty($omdb_result['Title']) ? '' : str_slug($omdb_result['Title'])),
                             'year' => (empty($omdb_result['Year']) ? '' : $omdb_result['Year']),
                             'rated' => (empty($omdb_result['Rated']) ? '' : $omdb_result['Rated']),
                             'released' => (empty($omdb_result['Released']) ? '' : $omdb_result['Released']),
@@ -99,8 +100,7 @@ class SearchController extends Controller
                             'dvd' => (empty($omdb_result['DVD']) ? '' : $omdb_result['DVD']),
                             'box_office' => (empty($omdb_result['BoxOffice']) ? '' : $omdb_result['BoxOffice']),
                             'production' => (empty($omdb_result['Production']) ? '' : $omdb_result['Production']),
-                            'website' => (empty($omdb_result['Website']) ? '' : $omdb_result['Website']),
-                            'partially_complete' => 1
+                            'website' => (empty($omdb_result['Website']) ? '' : $omdb_result['Website'])
                         ];
 
                         if(empty($local_movie)) {
