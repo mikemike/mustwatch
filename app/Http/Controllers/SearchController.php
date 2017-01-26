@@ -44,8 +44,13 @@ class SearchController extends Controller
 
         $data = [
             'movies' => [],
-            'count' => 0
+            'count' => 0,
+            'logged_in' => Auth::check()
         ];
+
+        if($data['logged_in']) {
+            $user = Auth::user();
+        }
 
         // Search the database
         $db_movies = Movie::search($query)->get();
@@ -104,8 +109,17 @@ class SearchController extends Controller
                             $local_movie->fill($new_data);
                         }
                         $local_movie->searchable();
+                        
+                        // Check if the user has this film added
+                        if($data['logged_in']) {
+                            if($user->movies->contains($local_movie->id)) {
+                                $local_movie->has_added = true;
+                            } else {
+                                $local_movie->has_added = false;
+                            }
+                        }
 
-                        $new_data['source'] = 'omdb';
+                        $local_movie->source = 'omdb';
                         $omdb_movies[] = $local_movie;
                     }
                     
@@ -126,10 +140,18 @@ class SearchController extends Controller
         }
 
         // If we have any omdb movies lets just use those rather than merging as it prevents dupes
-        //if(!$db_movies->isEmpty()){
-        //    $data['movies'] = array_merge($data['movies'], $db_movies->toArray());
-        //}
         if(empty($omdb_movies)) {
+            // Loop through DB movies if user is logged in
+            if($data['logged_in']) {
+                foreach($db_movies as $db_movie) {
+                // Check if the user has this film added
+                    if($user->movies->contains($db_movie->id)) {
+                        $db_movie->has_added = true;
+                    } else {
+                        $db_movie->has_added = false;
+                    }
+                }
+            }
             $movies = $db_movies->toArray();
         } else {
             $movies = $omdb_movies;
@@ -145,7 +167,6 @@ class SearchController extends Controller
         }
 
         $data['movies'] = $final_array;
-        $data['logged_in'] = Auth::check();
 
         return response()->json($data);
     }
