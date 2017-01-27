@@ -27,7 +27,7 @@ $(document).ready(function() {
                     html+= '<div class="col-md-2 fadein">';
                     html+= '    <div class="movie">';
                     html+= '        <img src="'+ data.movies[i].poster +'">';
-                    html+= '        <h2>'+ data.movies[i].title +'</h2>';
+                    html+= '        <a href="/title/'+ data.movies[i].slug +'/' + data.movies[i].id +'"><h2>'+ data.movies[i].title +'</h2></a>';
                     html+= '        <p class="text-muted">'+ data.movies[i].type +'</p>';
                     if(data.logged_in == false) {
                         html+= '        <p class="btn-area"><a href="/login" class="btn btn-primary btn-sm btn-block">Login to Add</a></p>';

@@ -28,7 +28,7 @@
                     <div id="results"></div>
 
                 </div>
-            </div>
+            </div> <!-- .panel -->
 
         </div> <!-- .col-md-12 -->
         

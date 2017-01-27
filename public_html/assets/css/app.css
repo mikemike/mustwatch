@@ -7963,4 +7963,13 @@ body {
   width: 100%;
 }
 
+.movie-view .img {
+  max-width: 300px;
+  margin-right: 15px;
+}
+
+.movie-view .img img {
+  max-width: 100%;
+}
+
 /*# sourceMappingURL=app.css.map */
