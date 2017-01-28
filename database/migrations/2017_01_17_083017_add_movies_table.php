@@ -50,7 +50,7 @@ class AddMoviesTable extends Migration
             $table->string('box_office')->nullable();
             $table->string('production')->nullable();
             $table->string('website')->nullable();
-            $table->boolean('partially_complete')->default(false);
+            $table->boolean('full_listing')->default(false)->comment('Do we have a full data set?');
             $table->timestamps();
         });
     }

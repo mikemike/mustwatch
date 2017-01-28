@@ -34,12 +34,13 @@ class MovieController extends Controller
         }
 
         // Do we have a complete record?
-        if($movie->partially_complete == 1) {
+        if($movie->full_listing == 0) {
             // Grab the full record
             $omdb = \MovieDB::getMovie($movie->imdb_id);
 
             if(!empty($omdb)) {
                 if(empty($omdb['Error']) && isset($omdb['Response']) && $omdb['Response'] == 'True') {
+
                     $new_data = [
                         'title' => (empty($omdb['Title']) ? '' : $omdb['Title']),
                         'slug' => (empty($omdb['Title']) ? '' : str_slug($omdb['Title'])),
@@ -75,10 +76,16 @@ class MovieController extends Controller
                         'dvd' => (empty($omdb['DVD']) ? '' : $omdb['DVD']),
                         'box_office' => (empty($omdb['BoxOffice']) ? '' : $omdb['BoxOffice']),
                         'production' => (empty($omdb['Production']) ? '' : $omdb['Production']),
-                        'website' => (empty($omdb['Website']) ? '' : $omdb['Website']),
-                        'partially_complete' => 0
+                        'website' => (empty($omdb['Website']) ? '' : $omdb['Website'])
                     ];
                     $movie->fill($new_data);
+
+                    if(!empty($movie->plot) && !empty($movie->poster)) {
+                        $movie->full_listing = 1;
+                    } else {
+                        $movie->full_listing = 0;
+                    }
+                    
                     $movie->save();
                     $movie->searchable();
                 }
@@ -142,6 +149,62 @@ class MovieController extends Controller
 
         $user = Auth::user();
         $user->movies()->detach($movie_id);
+
+        $data['success'] = true;
+
+        return response()->json($data);
+    }
+
+    /**
+     * AJAX mark as watched
+     *
+     * @return String JSON
+     */
+    public function ajax_mark_watched(Request $request)
+    {
+        $data = [];
+        $data['logged_in'] = Auth::check();
+
+        if($data['logged_in'] == false) {
+            return response()->json($data);    
+        }
+
+        $movie_id = $request->input('movie_id');
+        if(empty($movie_id)) {
+            $data['error'] = 'Movie not found, please try again.';
+            return response()->json($data);
+        }
+
+        $user = Auth::user();
+        $user->movies()->updateExistingPivot($movie_id, ['has_watched' => 1]);
+
+        $data['success'] = true;
+
+        return response()->json($data);
+    }
+
+    /**
+     * AJAX mark as unwatched
+     *
+     * @return String JSON
+     */
+    public function ajax_mark_unwatched(Request $request)
+    {
+        $data = [];
+        $data['logged_in'] = Auth::check();
+
+        if($data['logged_in'] == false) {
+            return response()->json($data);    
+        }
+
+        $movie_id = $request->input('movie_id');
+        if(empty($movie_id)) {
+            $data['error'] = 'Movie not found, please try again.';
+            return response()->json($data);
+        }
+
+        $user = Auth::user();
+        $user->movies()->updateExistingPivot($movie_id, ['has_watched' => 0]);
 
         $data['success'] = true;
 

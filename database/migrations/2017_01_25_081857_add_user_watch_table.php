@@ -17,6 +17,7 @@ class AddUserWatchTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('movie_id');
+            $table->boolean('has_watched')->default(false);
             $table->timestamps();
 
             $table->index(['user_id', 'movie_id']);

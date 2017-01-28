@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 
+require('./movieactions');
 require('./search');
 
 (function($) {

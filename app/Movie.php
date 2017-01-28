@@ -46,7 +46,7 @@ class Movie extends Model
         'box_office',
         'production',
         'website',
-        'partially_complete'
+        'full_listing'
     ];
 
     /**
