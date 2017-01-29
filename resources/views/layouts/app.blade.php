@@ -20,6 +20,12 @@
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!}
+
+        function imgError(image) {
+            image.onerror = "";
+            image.src = "/assets/img/noimage.png";
+            return true;
+        }
     </script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
