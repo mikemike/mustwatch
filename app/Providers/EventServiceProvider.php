@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\MovieAddedAsToWatch' => [
             'App\Listeners\GetFullMovie',
         ],
+        'App\Events\MovieFullPulledWithNoLocalImage' => [
+            'App\Listeners\StoreRemoteImage',
+        ],
     ];
 
     /**

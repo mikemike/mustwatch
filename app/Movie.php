@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 use Mikemike\MovieDB;
+use Event;
+use App\Events\MovieFullPulledWithNoLocalImage;
 
 class Movie extends Model
 {
@@ -84,7 +86,7 @@ class Movie extends Model
                     'language' => (empty($omdb['Language']) ? '' : $omdb['Language']),
                     'country' => (empty($omdb['Country']) ? '' : $omdb['Country']),
                     'awards' => (empty($omdb['Awards']) ? '' : $omdb['Awards']),
-                    'poster' => (empty($omdb['Poster']) || $omdb['Poster'] == 'N/A' ? '' : $omdb['Poster']),
+                    'remote_poster' => (empty($omdb['Poster']) || $omdb['Poster'] == 'N/A' ? '' : $omdb['Poster']),
                     'metascore' => (empty($omdb['Metascore']) ? '' : $omdb['Metascore']),
                     'imdb_rating' => (empty($omdb['imdbRating']) ? '' : $omdb['imdbRating']),
                     'imdb_votes' => (empty($omdb['imdbVotes']) ? '' : str_replace(',', '', $omdb['imdbVotes'])),
@@ -116,6 +118,12 @@ class Movie extends Model
                 
                 $movie->save();
                 $movie->searchable();
+
+                if(!empty($movie->remote_poster)) {
+                    if($movie->has_local_poster == 0) {
+                        Event::fire(new MovieFullPulledWithNoLocalImage($movie->id));
+                    }
+                }
             }
         }
         return $movie;

@@ -47,6 +47,11 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 |
 */
 
+// Enables a different, more dynamic public path (public_html, for example)
+$app->bind('path.public', function() {
+    return __DIR__;
+});
+
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(

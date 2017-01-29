@@ -81,6 +81,7 @@ class SearchController extends Controller
                             'country' => (empty($omdb_result['Country']) ? '' : $omdb_result['Country']),
                             'awards' => (empty($omdb_result['Awards']) ? '' : $omdb_result['Awards']),
                             'poster' => (empty($omdb_result['Poster']) || $omdb_result['Poster'] == 'N/A' ? '' : $omdb_result['Poster']),
+                            'remote_poster' => (empty($omdb_result['Poster']) || $omdb_result['Poster'] == 'N/A' ? '' : $omdb_result['Poster']),
                             'metascore' => (empty($omdb_result['Metascore']) ? '' : $omdb_result['Metascore']),
                             'imdb_rating' => (empty($omdb_result['imdbRating']) ? '' : $omdb_result['imdbRating']),
                             'imdb_votes' => (empty($omdb_result['imdbVotes']) ? '' : str_replace(',', '', $omdb_result['imdbVotes'])),
