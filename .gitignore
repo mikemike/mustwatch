@@ -1,6 +1,7 @@
 vendor/
 node_modules/
 composer.lock
+public_html/assets/img/posters/*
 
 # Laravel 4 specific
 bootstrap/compiled.php
