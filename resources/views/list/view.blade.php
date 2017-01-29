@@ -34,7 +34,7 @@
                                             @else
                                                 <a href="javascript:void(0);" class="btn btn-info btn-sm btn-block btn-mark-watched" data-is-watched="0" data-id="{{ $movie->id }}">Mark as watched</a>
                                             @endif
-                                            <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-block btn-add" data-on-list="1" data-id="'+ data.movies[i].id +'">Remove from your list</a>
+                                            <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-block btn-add" data-on-list="1" data-id="{{ $movie->id }}">Remove from your list</a>
                                         </p>
                                     @endif
                                 </div>
