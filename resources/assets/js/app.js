@@ -6,8 +6,9 @@
  */
 
 require('./bootstrap');
+require('../../../node_modules/isotope-layout/dist/isotope.pkgd.min.js');
 
 require('./general');
 require('./movieactions');
 require('./search');
-
+require('./list');

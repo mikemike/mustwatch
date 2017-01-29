@@ -29,6 +29,7 @@ class Movie extends Model
         'country',
         'awards',
         'poster',
+        'remote_poster',
         'metascore',
         'imdb_rating',
         'imdb_votes',

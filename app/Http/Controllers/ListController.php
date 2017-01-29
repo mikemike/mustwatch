@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Movie;
-use Mikemike\MovieDB;
 
-class MovieController extends Controller
+class ListController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,7 +23,7 @@ class MovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function list_all()
+    public function list_movies()
     {
         $movies = Auth::user()->movies;
 
@@ -33,10 +32,20 @@ class MovieController extends Controller
             return view('list.none-found');
         }
 
-        return view('list.view', [
-            'movies' => $movies
-        ]);
-    }
+        // Build a list of available filters
+        $filters = [];
+        foreach($movies as $movie) {
+            $genres = explode(', ', $movie->genre);
+            foreach($genres as $genre) {
+                if(!in_array($genre, $filters)) {
+                    $filters[] = $genre;
+                }
+            }
+        }
 
-    
+        return view('list.view', [
+            'movies' => $movies,
+            'filters' => $filters
+        ]);
+    }    
 }

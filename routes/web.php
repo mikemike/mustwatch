@@ -20,7 +20,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('account', ['uses' => 'AccountController@account_submit', 'as' => 'account.submit']);
     
     // View your list 
-    Route::get('/list', ['uses' => 'MovieController@list_movies', 'as' => 'list']);
+    Route::get('/list', ['uses' => 'ListController@list_movies', 'as' => 'list']);
 });
 
 Route::group(['middleware' => ['web']], function () {

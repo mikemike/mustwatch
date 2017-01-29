@@ -26,7 +26,7 @@ $(document).ready(function() {
                     var html = '';
                     html+= '<div class="col-md-2 fadein">';
                     html+= '    <div class="movie">';
-                    html+= '        <img src="'+ data.movies[i].poster +'" class="poster" onerror="imgError(this);">';
+                    html+= '        <a href="/title/'+ data.movies[i].slug +'/' + data.movies[i].id +'"><img src="'+ data.movies[i].poster +'" class="poster" onerror="imgError(this);"></a>';
                     html+= '        <a href="/title/'+ data.movies[i].slug +'/' + data.movies[i].id +'"><h2>'+ data.movies[i].title +'</h2></a>';
                     html+= '        <p class="text-muted">'+ data.movies[i].type +'</p>';
                     if(data.logged_in == false) {
