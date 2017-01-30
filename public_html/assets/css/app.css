@@ -7968,13 +7968,17 @@ body {
   width: 100%;
 }
 
-.movie-view .img {
-  max-width: 300px;
-  margin-right: 15px;
-}
-
 .movie-view .img img {
   max-width: 100%;
+}
+
+.movie-view .dl-horizontal dt {
+  width: 105px;
+  text-align: left;
+}
+
+.movie-view .dl-horizontal dd {
+  margin-left: 115px;
 }
 
 .your-list .filters h4 {

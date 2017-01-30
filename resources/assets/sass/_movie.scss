@@ -1,10 +1,17 @@
 .movie-view {
     .img {
-        max-width: 300px;
-        margin-right: floor(($grid-gutter-width / 2));
-
         img {
             max-width: 100%;
+        }
+    }
+
+    .dl-horizontal {
+        dt {
+            width: 105px;
+            text-align: left;
+        }
+        dd {
+            margin-left: 115px;
         }
     }
 }
