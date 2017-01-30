@@ -61,7 +61,7 @@
                     @if (Auth::guest())
                         <li><a href="/">Home</a></li>
                     @else 
-                        <li><a href="/list">Your List</a></li>
+                        <li><a href="/list/{{ Auth::user()->id }}">Your List</a></li>
                     @endif
                         <li><a href="/search">Search</a></li>
                         <li><a href="/about">About</a></li>

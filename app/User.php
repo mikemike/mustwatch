@@ -34,6 +34,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Movie', 'user_movie', 'user_id', 'movie_id')
             ->withPivot('has_watched')
+            ->orderBy('has_watched')
+            ->orderBy('title')
             ->withTimestamps();
     }
 }

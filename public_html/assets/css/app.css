@@ -7977,8 +7977,20 @@ body {
   max-width: 100%;
 }
 
-.your-list .filters {
+.your-list .filters h4 {
+  margin-top: 0;
+}
+
+.your-list .filters > div {
   margin-bottom: 15px;
+}
+
+.your-list .sort {
+  text-align: right;
+}
+
+.your-list .sort h4 {
+  margin-top: 0;
 }
 
 .your-list .movie {

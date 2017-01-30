@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Movie;
+use App\User;
 
 class ListController extends Controller
 {
@@ -15,7 +16,7 @@ class ListController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        
     }
 
     /**
@@ -23,9 +24,11 @@ class ListController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function list_movies()
+    public function list_movies($id)
     {
-        $movies = Auth::user()->movies;
+        $user = User::findOrFail($id);
+
+        $movies = $user->movies;
 
         // Does the movie exist?
         if(empty($movies)) {
@@ -44,6 +47,7 @@ class ListController extends Controller
         }
 
         return view('list.view', [
+            'user' => $user,
             'movies' => $movies,
             'filters' => $filters
         ]);

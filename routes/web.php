@@ -18,9 +18,6 @@ Route::group(['middleware' => ['web']], function () {
     // Account pages
     Route::get('account', ['uses' => 'AccountController@index', 'as' => 'account']);
     Route::post('account', ['uses' => 'AccountController@account_submit', 'as' => 'account.submit']);
-    
-    // View your list 
-    Route::get('/list', ['uses' => 'ListController@list_movies', 'as' => 'list']);
 });
 
 Route::group(['middleware' => ['web']], function () {
@@ -40,4 +37,6 @@ Route::group(['middleware' => ['web']], function () {
     // Movie view
     Route::get('/title/{slug}/{id}', ['uses' => 'MovieController@view', 'as' => 'movie.view']);
     
+    // View a profile
+    Route::get('/list/{id}', ['uses' => 'ListController@list_movies', 'as' => 'list']);
 }); // EO web mw
