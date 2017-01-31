@@ -3,10 +3,12 @@ $(document).ready(function(){
     $grid = $('#results .row').isotope({
         itemSelector: '.col-md-2',
         getSortData: {
-            year: '[data-year]'
+            year: '[data-year]',
+            rating: '[data-rating]'
         },
         sortAscending: {
-            year: false
+            year: false,
+            rating: false
         }
     });
 

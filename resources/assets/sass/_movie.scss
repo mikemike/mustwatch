@@ -3,15 +3,32 @@
         img {
             max-width: 100%;
         }
+
+        .progress {
+            margin: 5px 0 0 0;
+            background: $table-bg-hover;
+        }
+        
+        @media(max-width: $screen-sm-max) {
+            text-align: center;
+        }
+    }
+
+    
+    @media(max-width: $screen-sm-max) {
+        .btn-group {
+            margin: 0 auto 15px auto;
+            display: block;
+        }
     }
 
     .dl-horizontal {
         dt {
-            width: 105px;
+            width: 115px;
             text-align: left;
         }
         dd {
-            margin-left: 115px;
+            margin-left: 120px;
         }
     }
 }

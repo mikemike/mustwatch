@@ -45,11 +45,19 @@ class ListController extends Controller
                 }
             }
         }
+        
+        // Build share button text 
+        $current_url = \Request::fullUrl();
+        $tweet_text = rawurlencode('Check out my Must Watch list on '. config('app.name') .' '. $current_url);
+        $fb_text = $tweet_text;
 
         return view('list.view', [
             'user' => $user,
             'movies' => $movies,
-            'filters' => $filters
+            'filters' => $filters,
+            'current_url' => $current_url,
+            'tweet_text' => $tweet_text,
+            'fb_text' => $fb_text,
         ]);
     }    
 }

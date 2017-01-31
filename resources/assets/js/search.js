@@ -24,11 +24,12 @@ $(document).ready(function() {
 
                 $.each(data.movies, function(i, v){
                     var html = '';
-                    html+= '<div class="col-md-2 fadein">';
+                    html+= '<div class="col-md-2 col-xs-6 fadein">';
                     html+= '    <div class="movie">';
                     html+= '        <a href="/title/'+ data.movies[i].slug +'/' + data.movies[i].id +'"><img src="'+ data.movies[i].poster +'" class="poster" onerror="imgError(this);"></a>';
                     html+= '        <a href="/title/'+ data.movies[i].slug +'/' + data.movies[i].id +'"><h2>'+ data.movies[i].title +'</h2></a>';
-                    html+= '        <p class="text-muted">'+ data.movies[i].type +'</p>';
+                    html+= '        <p class="text-muted pull-left">'+ data.movies[i].year +'</p>';
+                    html+= '        <p class="text-muted text-right">'+ data.movies[i].type +'</p>';
                     if(data.logged_in == false) {
                         html+= '        <p class="btn-area"><a href="/login" class="btn btn-primary btn-sm btn-block">Login to Add</a></p>';
                     } else {

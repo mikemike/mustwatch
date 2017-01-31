@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading"><h1>Login</h1></div>
                 <div class="panel-body">
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
@@ -73,7 +73,7 @@
         </div> <!-- .col-md-6 -->
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading"><h1>Register</h1></div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}

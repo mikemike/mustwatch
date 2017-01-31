@@ -9,10 +9,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="@yield('meta_description')">
 
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:title" content="@yield('og_title', 'Must Watch - Bookmark movies and TV shows to watch later')">
+    <meta property="og:description" content="@yield('og_description', 'Never forget a film or TV show again.  Bookmark them to your list, and keep a record of what you have watched.')">
+    <meta property="og:image" content="@yield('og_image', '')">
+
     <title>@yield('title') | {{ config('app.name') }}</title>
 
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
     <link href="/assets/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
@@ -108,18 +115,27 @@
 
         <footer>
             <div class="container">
-                <p>&copy; {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved.</p>
-                <ul class="list-inline">
-                    <li>
-                        <a href="#">Privacy</a>
-                    </li>
-                    <li>
-                        <a href="#">Terms</a>
-                    </li>
-                    <li>
-                        <a href="#">FAQ</a>
-                    </li>
-                </ul>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-inline pull-right">
+                            <li>
+                                <a href="/search">Search</a>
+                            </li>
+                            <li>
+                                <a href="/contact">Contact</a>
+                            </li>
+                            <li>
+                                <a href="/about#faq">FAQ</a>
+                            </li>
+                            <li>
+                                <a href="/privacy-and-cookies">Privacy &amp; Cookies</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </footer>
 
@@ -127,5 +143,8 @@
 
     <!-- Scripts -->
     <script src="/assets/js/app.js"></script>
+
+    <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 </body>
 </html>

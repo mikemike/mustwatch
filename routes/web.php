@@ -21,8 +21,11 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::group(['middleware' => ['web']], function () {
-    // Home
-    Route::get('/', 'HomeController@index');
+    // Pages
+    Route::get('/', ['uses' => 'PageController@home', 'as' => 'home']);
+    Route::get('/about', ['uses' => 'PageController@about', 'as' => 'about']);
+    Route::get('/contact', ['uses' => 'PageController@contact', 'as' => 'contact']);
+    Route::get('/privacy-and-cookies', ['uses' => 'PageController@privacy', 'as' => 'privacy-and-cookies']);
     
     // Movie search
     Route::get('/search', ['uses' => 'SearchController@index', 'as' => 'search']);

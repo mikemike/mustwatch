@@ -7,13 +7,35 @@
         & > div {
             margin-bottom: 15px;
         }
+
+        button {
+            margin-bottom: 3px;
+        }
     }
 
-    .sort {        
+    .sort {
         text-align: right;
 
         h4 {
             margin-top: 0;
+        }
+        
+        button {
+            margin-bottom: 3px;
+        }
+
+        @media(max-width: $screen-sm-max) {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+    }
+
+    .social {
+        text-align: right;
+
+        @media(max-width: $screen-sm-max) {
+            text-align: left;
+            margin-bottom: 15px;
         }
     }
 
@@ -22,6 +44,11 @@
 
         .btn-area {
             height: 65px;
+        }
+
+        .progress {
+            margin-top: 5px;
+            margin-bottom: 0;
         }
     }
 }

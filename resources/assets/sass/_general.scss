@@ -20,8 +20,27 @@
     flex-direction: column;
 }
 
-a.btn {
+a {
     @include transition;
+}
+
+.text-muted {
+    color: #969696;
+}
+
+@media(max-width: $screen-xs-max) {
+    a.btn {
+        white-space: normal; 
+    }
+}
+
+.btn-facebook {
+    background: #3b5998;
+    color: #fff;
+}
+.btn-twitter {
+    background: #00aced;
+    color: #fff;
 }
 
 // Fade in
@@ -86,3 +105,11 @@ a.btn {
 .fadein:nth-child(39) { animation-delay: 4.1s }
 .fadein:nth-child(40) { animation-delay: 4.2s }
 // eo fadein
+
+.lnr {
+    display: inline-block;
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.05em;
+}

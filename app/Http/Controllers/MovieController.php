@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-use App\Movie;
 use Event;
+use App\Movie;
 use App\Events\MovieAddedAsToWatch;
 use Mikemike\MovieDB;
 
@@ -40,8 +40,16 @@ class MovieController extends Controller
             $movie->get_full($movie);
         }
 
+        // Build share button text 
+        $current_url = \Request::fullUrl();
+        $tweet_text = rawurlencode('Check out '. $movie->title .' on '. config('app.name') .' '. $current_url);
+        $fb_text = $tweet_text;
+
         return view('movies.view', [
-            'movie' => $movie
+            'movie' => $movie,
+            'current_url' => $current_url,
+            'tweet_text' => $tweet_text,
+            'fb_text' => $fb_text,
         ]);
     }
 

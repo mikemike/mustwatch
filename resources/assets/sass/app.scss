@@ -4,14 +4,16 @@
 
 // Variables
 @import "variables";
-@import "mixins";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "bootswatch";
 
+@import "mixins";
 @import "layout";
 @import "general";
 @import "search";
 @import "movie";
 @import "your-list";
+@import "home";
 //@import "theme";
