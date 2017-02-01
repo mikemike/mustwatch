@@ -10,7 +10,7 @@
     }
     
     .hero {
-        margin-top: -75px; 
+        margin-top: -($navbar-height + 25px); 
         height: 100vh; 
         background: rgba(78, 93, 108, 0.6);
         color: #fff;
@@ -31,10 +31,15 @@
 
     .slider {
         background: rgba(78, 93, 108, 1);
-        height: 400px;
+        height: 370px;
         padding: 20px 0;
 
+        h2 {
+            margin-bottom: 40px;
+        }
+
         .movie-item {
+            padding: 0 15px;
 
             img {
                 max-width: 100%;
@@ -49,6 +54,12 @@
     }
 
     .features {
+        padding: 20px 0;
+
+        h2 {            
+            margin-bottom: 40px;
+        }
+
         .lnr {
             width: 75px;
             height: 75px;
@@ -63,7 +74,7 @@
         }
 
         .btn {
-            margin-top: 20px;
+            margin-top: 40px;
         }
     }
 

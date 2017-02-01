@@ -31,7 +31,7 @@ $(document).ready(function() {
                     html+= '        <p class="text-muted pull-left">'+ data.movies[i].year +'</p>';
                     html+= '        <p class="text-muted text-right">'+ data.movies[i].type +'</p>';
                     if(data.logged_in == false) {
-                        html+= '        <p class="btn-area"><a href="/login" class="btn btn-primary btn-sm btn-block">Login to Add</a></p>';
+                        html+= '        <p class="btn-area"><a href="/login?r='+ location.href +'" class="btn btn-primary btn-sm btn-block">Login to Add</a></p>';
                     } else {
                         if(data.movies[i].has_added == false) {
                             html+= '        <p class="btn-area"><a href="javascript:void(0);" class="btn btn-success btn-sm btn-block btn-add" data-on-list="0" data-id="'+ data.movies[i].id +'">Add to your list</a></p>';

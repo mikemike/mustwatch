@@ -21,6 +21,13 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
     <link href="/assets/css/app.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#df691a">
+    <meta name="theme-color" content="#df691a">
 
     <!-- Scripts -->
     <script>
@@ -58,7 +65,8 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name') }}
+                        @include('partials.logo')
+                        <span>{{ config('app.name') }}</span>
                     </a>
                 </div>
 
@@ -117,23 +125,34 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <p>&copy; {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved.</p>
+                        <a href="/" class="logo-cont">
+                            @include('partials.logo')
+                            <p>
+                                {{ config('app.name') }}
+                            </p>
+                        </a> <!-- .logo-cont -->
+                        
                     </div>
                     <div class="col-md-6">
-                        <ul class="list-inline pull-right">
-                            <li>
-                                <a href="/search">Search</a>
-                            </li>
-                            <li>
-                                <a href="/contact">Contact</a>
-                            </li>
-                            <li>
-                                <a href="/about#faq">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="/privacy-and-cookies">Privacy &amp; Cookies</a>
-                            </li>
-                        </ul>
+                        <div>
+                            <ul class="list-inline pull-right">
+                                <li>
+                                    <a href="/search">Search</a>
+                                </li>
+                                <li>
+                                    <a href="/contact">Contact</a>
+                                </li>
+                                <li>
+                                    <a href="/about#faq">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="/privacy-and-cookies">Privacy &amp; Cookies</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                        
+                        <p class="text-right">&copy; {{ config('app.name') }} {{ date('Y') }}. All Rights Reserved.</p>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('.home .slider .slidethis').slick({
         infinite: true,
-        speed: 5000,
+        speed: 7000,
         autoplay: true,
         autoplaySpeed: 0,
         cssEase: 'linear',

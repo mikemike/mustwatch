@@ -26,7 +26,8 @@ class PageController extends Controller
     {
         $recents = Movie::orderBy('id')
             ->where('poster', '<>', '', 'and')
-            ->where('imdb_rating', '>', '8', 'and')
+            ->orderBy('views', 'desc')
+            ->inRandomOrder()
             ->limit(50)
             ->get();
 

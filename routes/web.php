@@ -14,6 +14,7 @@
 
 // Account and auth
 Auth::routes();
+Route::post('login', ['middleware' => 'login-redirect', 'uses' => 'Auth\LoginController@login']);
 Route::group(['middleware' => ['web']], function () {
     // Account pages
     Route::get('account', ['uses' => 'AccountController@index', 'as' => 'account']);

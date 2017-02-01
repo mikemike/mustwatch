@@ -35,6 +35,8 @@ class MovieController extends Controller
             return view('movies.not-found');
         }
 
+        $movie->increment('views');
+
         // Do we have a complete record?
         if($movie->full_listing == 0) {
             $movie->get_full($movie);
