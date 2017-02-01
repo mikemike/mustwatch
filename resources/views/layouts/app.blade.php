@@ -12,7 +12,7 @@
     <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:title" content="@yield('og_title', 'Must Watch - Bookmark movies and TV shows to watch later')">
     <meta property="og:description" content="@yield('og_description', 'Never forget a film or TV show again.  Bookmark them to your list, and keep a record of what you have watched.')">
-    <meta property="og:image" content="@yield('og_image', '')">
+    <meta property="og:image" content="@yield('og_image', url('/assets/img/logo-og.png'))">
 
     <title>@yield('title') | {{ config('app.name') }}</title>
 
