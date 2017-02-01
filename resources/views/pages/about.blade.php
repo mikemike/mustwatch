@@ -44,7 +44,7 @@
                     <p>
                         We get our data from a few sources, which are nearly always up-to-date, including non-released
                         titles.  So if the TV show or movie you're looking for isn't there then it might be 
-                        known as something else (titles are often nameed different in other countries - 
+                        known as something else (titles are often named differently in other countries - 
                         <a href="http://harrypotter.wikia.com/wiki/Harry_Potter_and_the_Philosopher's_Stone" target="_blank">Harry Potter is a good example of this</a>). 
                         If you are certain we are missing your TV show or film then please get in touch.
                     </p>
