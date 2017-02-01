@@ -8519,6 +8519,7 @@ a {
   left: 0;
   width: 100%;
   height: 100px;
+  padding: 10px;
 }
 
 .home .hero .titles a.btn {
