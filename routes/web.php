@@ -42,5 +42,5 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/title/{slug}/{id}', ['uses' => 'MovieController@view', 'as' => 'movie.view']);
     
     // View a profile
-    Route::get('/list/{id}', ['uses' => 'ListController@list_movies', 'as' => 'list']);
+    Route::get('/list/{username}', ['uses' => 'ListController@list_movies', 'as' => 'list']);
 }); // EO web mw

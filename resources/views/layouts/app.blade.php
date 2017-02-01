@@ -76,7 +76,7 @@
                     @if (Auth::guest())
                         <li><a href="/">Home</a></li>
                     @else 
-                        <li><a href="/list/{{ Auth::user()->id }}">Your List</a></li>
+                        <li><a href="/list/{{ Auth::user()->username }}">Your List</a></li>
                     @endif
                         <li><a href="/search">Search</a></li>
                         <li><a href="/about">About</a></li>
@@ -116,6 +116,22 @@
         </nav>
 
         <div class="container">
+
+            @if(session('message'))
+                <div class="alert alert-info fadein" role="alert">
+                    <p>{{ session('message') }}</p>
+                </div>
+            @endif
+            @if(session('error'))
+                <div class="alert alert-danger fadein" role="alert">
+                    <p>{{ session('error') }}</p>
+                </div>
+            @endif
+            @if(session('success'))
+                <div class="alert alert-success fadein" role="alert">
+                    <p>{{ session('success') }}</p>
+                </div>
+            @endif
 
             @yield('content')
 

@@ -36,4 +36,22 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
+    public function username()
+    {
+        return 'username';
+    }
+
+    /**
+    * Override the trait method to allow login using either email or username
+    * @param Request $request
+    * @return array
+    */
+    protected function credentials(Request $request)
+    {
+        $usernameInput = trim($request->{$this->username()});
+        $usernameColumn = $this->username();
+
+        return [$usernameColumn => $usernameInput, 'password' => $request->password, 'active' => 1];
+    }
 }

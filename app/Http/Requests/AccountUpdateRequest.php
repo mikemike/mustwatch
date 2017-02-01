@@ -10,6 +10,7 @@ class AccountUpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'max:255'],
+            'username' => ['required', 'max:255', 'alpha_dash', 'unique:users,username,'. Auth::user()->username .',username'],
             'email' => ['required', 'email', 'unique:users,email,'.Auth::user()->id.',id'],
             'password' => ['min:8', 'confirmed']
         ];

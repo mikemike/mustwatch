@@ -24,15 +24,22 @@ class ListController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function list_movies($id)
+    public function list_movies($username)
     {
-        $user = User::findOrFail($id);
+        $user = User::where('username', $username)->first();
+
+        // Does the movie exist?
+        if(empty($user)) {
+            abort(404);
+        }
 
         $movies = $user->movies;
 
-        // Does the movie exist?
-        if(empty($movies)) {
-            return view('list.none-found');
+        // Do the movies exist?
+        if($movies->count() == 0) {
+            return view('list.none-found', [
+                'user' => $user
+            ]);
         }
 
         // Build a list of available filters
