@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
+use DB;
 
 class PageController extends Controller
 {
@@ -27,7 +28,7 @@ class PageController extends Controller
         $recents = Movie::orderBy('id')
             ->where('poster', '<>', '', 'and')
             ->orderBy('views', 'desc')
-            ->inRandomOrder()
+            ->orderBy(\DB::raw('RAND()'))
             ->limit(50)
             ->get();
 
