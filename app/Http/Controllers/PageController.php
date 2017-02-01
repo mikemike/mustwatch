@@ -27,6 +27,7 @@ class PageController extends Controller
     {
         $recents = Movie::orderBy('id')
             ->where('poster', '<>', '', 'and')
+            ->where('has_local_poster', true)
             ->orderBy('views', 'desc')
             ->orderBy(\DB::raw('RAND()'))
             ->limit(50)
