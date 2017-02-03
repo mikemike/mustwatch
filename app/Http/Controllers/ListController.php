@@ -52,6 +52,16 @@ class ListController extends Controller
                 }
             }
         }
+
+        // Is the user logged in?  If so, get a list of their movies 
+        $user_movies = [];
+        $user_movies_ids = [];
+        $user_watched_ids = [];
+        if(Auth::check()) {
+            $user_movies = Auth::user()->movies();
+            $user_movies_ids = $user_movies->pluck('movies.id')->toArray();
+            $user_watched_ids = $user_movies->where('has_watched', true)->pluck('movies.id')->toArray();
+        }
         
         // Build share button text 
         $current_url = \Request::fullUrl();
@@ -65,6 +75,9 @@ class ListController extends Controller
             'current_url' => $current_url,
             'tweet_text' => $tweet_text,
             'fb_text' => $fb_text,
+            'user_movies' => $user_movies,
+            'user_movies_ids' => $user_movies_ids,
+            'user_watched_ids' => $user_watched_ids,
         ]);
     }    
 }

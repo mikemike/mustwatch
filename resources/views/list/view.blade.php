@@ -74,21 +74,14 @@
                                         <p class="btn-area"><a href="/login" class="btn btn-primary btn-sm btn-block">Login to Add</a></p>
                                     @else
                                         <p class="btn-area">
-                                            <?php
-                                                $usermovie = Auth::user()->movies()->find($movie->id);
-                                            ?>
-
-                                            @if(!empty($usermovie))
-                                                @if($usermovie->pivot->has_watched)
-                                                    <a href="javascript:void(0);" class="btn btn-warning btn-sm btn-block btn-mark-watched" data-is-watched="1" data-id="{{ $movie->id }}">Mark as not-watched</a>
-                                                @else 
-                                                    <a href="javascript:void(0);" class="btn btn-info btn-sm btn-block btn-mark-watched" data-is-watched="0" data-id="{{ $movie->id }}">Mark as watched</a>
-                                                @endif
+                                            <?php $curr_movie = $user_movies->find($movie->id); ?>
+                                           @if(in_array($movie->id, $user_watched_ids))
+                                                <a href="javascript:void(0);" class="btn btn-warning btn-sm btn-block btn-mark-watched" data-is-watched="1" data-id="{{ $movie->id }}">Mark as not-watched</a>                                                
                                             @else 
                                                 <a href="javascript:void(0);" class="btn btn-info btn-sm btn-block btn-mark-watched" data-is-watched="0" data-id="{{ $movie->id }}">Mark as watched</a>
                                             @endif
 
-                                            @if(!empty($usermovie))
+                                            @if(in_array($movie->id, $user_movies_ids))
                                                 <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-block btn-add" data-on-list="1" data-id="{{ $movie->id }}">Remove from your list</a>
                                             @else 
                                                 <a href="javascript:void(0);" class="btn btn-success btn-sm btn-block btn-add" data-on-list="0" data-id="{{ $movie->id }}">Add to your list</a>
