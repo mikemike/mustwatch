@@ -12,7 +12,7 @@
                 <div class="panel-heading"><h1>Search</h1></div>
                 <div class="panel-body">
 
-                    <form class="" role="form" method="POST" action="{{ url('/login') }}">
+                    <form class="" role="form" method="GET" action="{{ url('/login') }}" onsubmit="return false;">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
