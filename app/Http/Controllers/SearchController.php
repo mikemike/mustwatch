@@ -53,10 +53,10 @@ class SearchController extends Controller
         }
 
         // Search the database
-        $db_movies = Movie::search($query)->get();
+        //$db_movies = Movie::search($query)->get();
 
         // If less than the required results then grab the rest from the API
-        if($db_movies->count() < config('mustwatch.max_results')) {
+        //if($db_movies->count() < config('mustwatch.max_results')) {
             $omdb = \MovieDB::search_query($query);
             // Save any API results to the database
             if(!empty($omdb)) {
@@ -128,22 +128,23 @@ class SearchController extends Controller
                     $data['error'] = $omdb['Error'];
                 }
             }
-        }
+        //}
 
-        if($db_movies->isEmpty() && empty($omdb_movies)) {
+        if(/*$db_movies->isEmpty() &&*/ empty($omdb_movies)) {
             $data['count'] = 0;
         } else {
             if(!empty($omdb_movies)) {
                 $data['count'] = count($omdb_movies);
-            } else {
+            }/* else {
                 $data['count'] = $db_movies->count();
-            }
+            }*/
         }
 
         // If we have any omdb movies lets just use those rather than merging as it prevents dupes
         if(empty($omdb_movies)) {
+            $movies = [];
             // Loop through DB movies if user is logged in
-            if($data['logged_in']) {
+            /*if($data['logged_in']) {
                 foreach($db_movies as $db_movie) {
                 // Check if the user has this film added
                     if($user->movies->contains($db_movie->id)) {
@@ -153,7 +154,7 @@ class SearchController extends Controller
                     }
                 }
             }
-            $movies = $db_movies->toArray();
+            $movies = $db_movies->toArray();*/
         } else {
             $movies = $omdb_movies;
         }
