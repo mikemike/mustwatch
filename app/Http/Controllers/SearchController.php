@@ -59,13 +59,13 @@ class SearchController extends Controller
         //if($db_movies->count() < config('mustwatch.max_results')) {
             $page = 1;
             $should_end = false;
+            $omdb_movies = [];
 
             while(!$should_end && $page < 4) {
                 $omdb = \MovieDB::search_query($query, ['page' => $page]);
                 // Save any API results to the database
                 if(!empty($omdb)) {
                     if(empty($omdb['Error'])) {
-                        $omdb_movies = [];
                         foreach($omdb['Search'] as $omdb_result){
                             $local_movie = Movie::where('imdb_id', $omdb_result['imdbID'])->first();
 
