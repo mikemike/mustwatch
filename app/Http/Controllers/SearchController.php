@@ -61,7 +61,7 @@ class SearchController extends Controller
             $should_end = false;
             $omdb_movies = [];
 
-            while(!$should_end && $page < 4) {
+            while(!$should_end && $page < 7) {
                 $omdb = \MovieDB::search_query($query, ['page' => $page]);
                 // Save any API results to the database
                 if(!empty($omdb)) {
