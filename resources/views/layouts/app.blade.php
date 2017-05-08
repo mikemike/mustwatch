@@ -39,6 +39,9 @@
     <meta property="og:description" content="@yield('og_description', 'Never forget a film or TV show again.  Bookmark them to your list, and keep a record of what you have watched.')">
     <meta property="og:image" content="@yield('og_image', url('/assets/img/logo-og.png'))">
     <meta property="fb:app_id" content="2208140272744876">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <title>@yield('title') | {{ config('app.name') }}</title>
 
@@ -47,7 +50,6 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
     <link href="/assets/css/app.css" rel="stylesheet">
-    
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
